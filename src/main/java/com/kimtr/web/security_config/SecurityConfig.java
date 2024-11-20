@@ -17,10 +17,11 @@ import lombok.RequiredArgsConstructor;
 
 @Configuration
 @EnableWebSecurity
+@RequiredArgsConstructor
 public class SecurityConfig {
 	// https://velog.io/@woosim34/Spring-Spring-Security-%EC%84%A4%EC%A0%95-%EB%B0%8F-%EA%B5%AC%ED%98%84SessionSpring-boot3.0-%EC%9D%B4%EC%83%81
-	@Autowired
-	private MyUserDetailsService myUserDetailsService;
+	
+	private final MyUserDetailsService myUserDetailsService;
 
     @Bean  // password빈 등록   >> MemberServiceImpl 파일에서  주입받음.
     PasswordEncoder passwordEncoder() {

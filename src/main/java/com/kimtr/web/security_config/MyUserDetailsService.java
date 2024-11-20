@@ -17,8 +17,8 @@ import lombok.RequiredArgsConstructor;
 @Service
 public class MyUserDetailsService implements UserDetailsService {
 	
-	@Autowired
-	private IF_MemberDao memberdao;
+	//@Autowired
+	private final IF_MemberDao memberdao;
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
