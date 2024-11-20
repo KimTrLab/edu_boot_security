@@ -87,13 +87,7 @@ public class SecurityConfig {
   	@Getter
     @RequiredArgsConstructor
     public class ErrorResponse {
-
-        public ErrorResponse(HttpStatus forbidden, String string) {
-			// TODO Auto-generated constructor stub
-        	this.status=forbidden;
-        	this.message=string;
-		}
-		private final HttpStatus status;
+        private final HttpStatus status;
         private final String message;
     }
 

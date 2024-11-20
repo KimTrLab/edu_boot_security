@@ -1,5 +1,8 @@
 package com.kimtr.web.vo;
 
+import lombok.Data;
+
+@Data
 public class MemberVO {
 	// html의 name이름과 vo의 변수명과 데이터베이스 컬럼은
 	// 일치해야 자동으로 매핑 해 준다. 
@@ -10,52 +13,9 @@ public class MemberVO {
 	String role=null;
 	String name=null;
 
-	public String getRole() {
-		return role;
-	}
-
-	public void setRole(String role) {
-		this.role = role;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
 	@Override
 	public String toString() {
 		return "MemberVO [id=" + id + ", pass=" + pass + ", tel=" + tel + ", email=" + email + "]";
 	}
-	
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
-	}
-	public String getPass() {
-		return pass;
-	}
-	public void setPass(String pass) {
-		this.pass = pass;
-	}
-	public String getTel() {
-		return tel;
-	}
-	public void setTel(String tel) {
-		this.tel = tel;
-	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	
-	
 
 }

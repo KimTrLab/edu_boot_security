@@ -36,7 +36,7 @@ public class BoardController {
 		}
 		//3가지 정보만 있으면 페이지 계산이 가능
 		//1 현재 페이지,, 2, 페이지당 게시물 수  3.전체페이지 수
-		pagevo.setTotalCount(boardservice.totalCountBoard());		
+		pagevo.setTotalCount(boardservice.totalCountBoard(pagevo));		
 		// 확인용
 		//System.out.println(pagevo.getStartNo() +"시작 글번호");
 		//System.out.println(pagevo.getEndNo() +"마지막 글번호");

@@ -13,7 +13,7 @@ public interface IF_BoardDao {
 	public void deleteBoard(String delno)throws Exception;
 	public BoardVO selectOne(String title)throws Exception;
 	public void updateBoard(BoardVO boardvo)throws Exception;
-	public int cntBoard()throws Exception;
+	public int cntBoard(Pagevo pagevo)throws Exception;
 	public void insertAttach(String fname)throws Exception;
 	public List<String> selectAllAttach(String no)throws Exception;
 }

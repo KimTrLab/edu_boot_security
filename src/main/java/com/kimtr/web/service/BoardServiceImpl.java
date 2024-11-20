@@ -76,9 +76,9 @@ public class BoardServiceImpl implements IF_BoardService {
 	}
 
 	@Override
-	public int totalCountBoard() throws Exception {
+	public int totalCountBoard(Pagevo pagevo) throws Exception {
 		// TODO Auto-generated method stub
-		return boarddao.cntBoard();
+		return boarddao.cntBoard(pagevo);
 	}
 
 	@Override

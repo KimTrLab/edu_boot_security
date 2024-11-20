@@ -53,9 +53,10 @@ public class BoardDaoImpl implements IF_BoardDao{
 	}
 
 	@Override
-	public int cntBoard() throws Exception {
+	public int cntBoard(Pagevo pagevo) throws Exception {
 		// TODO Auto-generated method stub
-		return sqlsession.selectOne(mapperQuery+".allcnt");
+		
+		return sqlsession.selectOne(mapperQuery+".allcnt",pagevo);
 	}
 
 	@Override
