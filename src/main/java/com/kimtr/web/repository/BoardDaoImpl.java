@@ -13,6 +13,7 @@ import com.kimtr.web.vo.Pagevo;
 public class BoardDaoImpl implements IF_BoardDao{
 	@Autowired
 	SqlSession sqlsession;
+	
 	final String mapperQuery="com.kimtr.web.repository.IF_BoardDao";
 	
 	@Override

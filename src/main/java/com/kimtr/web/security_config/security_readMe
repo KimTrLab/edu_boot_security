@@ -12,6 +12,12 @@ Spring Security는 인증과 권한에 대해 Filter 흐름에 따라 처리하�
 인가(Authentication) : 인증된 사용자가 요청한 자원에 접근 가능한지 권한을 확인하는 절차   권한의 룰을 정하고 부여한다.  사용자의 권하는 데이터베이스에 저장된 정보로 구분
 
 
+
+접근 주체(Principal) : 보호된 대상에 접근하는 유저
+인증(Authentication) : 증명, 유저가 누구인지 확인하는 것, 통상 회원가입하고 로그인하는 것을 말한다.
+인가(Authorization) : 허락, 유저에 대한 권한을 확인, 허락하는 것
+
+
 ▷ 사용 기술
 
 Framework: Spring Boot 3.1.0, Spring Security 6.1.0

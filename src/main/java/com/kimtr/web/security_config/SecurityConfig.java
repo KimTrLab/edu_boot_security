@@ -10,6 +10,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.access.AccessDeniedHandler;
+import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -31,7 +32,8 @@ public class SecurityConfig {
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
 		http 
         .csrf((csrfConfig) ->   //csrf 무력화
-                csrfConfig.disable()
+               // csrfConfig.disable()
+        		csrfConfig.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
         ) // 1번
        /* .headers((headerConfig) ->
                 headerConfig.frameOptions(frameOptionsConfig ->
@@ -41,21 +43,23 @@ public class SecurityConfig {
         .authorizeHttpRequests((authorizeRequests) ->   //url mapping로 인가
                 authorizeRequests
                         .requestMatchers("/", "/login**/**","/join**","/img/**").permitAll()
-                        .requestMatchers("/board/**", "/view","/mod","/del").hasRole(Role.USER.name())   // role은 database에 지정
-                        .requestMatchers("/admins/**", "/api/v1/admins/**").hasRole(Role.ADMIN.name())
+                        .requestMatchers("/top10/js").permitAll()
+                        .requestMatchers("/board/**", "/view","/mod","/del").hasRole("USER")   // role은 database에 지정
+                        .requestMatchers("/admins/**", "/study**").hasRole(Role.ADMIN.name())
                         .anyRequest().authenticated()
+                      
         )// 3번
         .exceptionHandling((exceptionConfig) ->  // 401, 403예외처리 구문
                 exceptionConfig.authenticationEntryPoint(unauthorizedEntryPoint).accessDeniedHandler(accessDeniedHandler)
         ) // 401 403 관련 예외처리
         .formLogin((formLogin) ->   // 로그인시 파라미터 받고, 성공과 실패시 이동하는 url 환경 ㅓㄹ정
-        	formLogin
-                .loginPage("/login-form")  //login page url
-                .usernameParameter("id")     //view에서 보낸 파라미터
-                .passwordParameter("pass")   //view에서 보낸 파라미터
-                .loginProcessingUrl("/login") //view에서 보낸 url, 즉 로그인 form action
-                .defaultSuccessUrl("/login_success") //로그인 성공시 이동  url    >> 세션 작업을 할까? 고민중
-        )
+    		formLogin
+            .loginPage("/login-form")  //login page url
+            .usernameParameter("id")     //view에서 보낸 파라미터
+            .passwordParameter("pass")   //view에서 보낸 파라미터
+            .loginProcessingUrl("/login") //view에서 보낸 url, 즉 로그인 form action
+            .defaultSuccessUrl("/login_success") //로그인 성공시 이동  url    >> 세션 작업을 할까? 고민중
+        		)
         .logout((logoutConfig) ->
         	logoutConfig.logoutSuccessUrl("/") 
         )

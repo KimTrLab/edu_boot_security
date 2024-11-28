@@ -16,13 +16,14 @@ import com.kimtr.web.util.FileDataUtil;
 import com.kimtr.web.vo.BoardVO;
 import com.kimtr.web.vo.Pagevo;
 
+import lombok.RequiredArgsConstructor;
 
 
+@RequiredArgsConstructor   //Lombok에서 제공 final변수 객체생성.. 즉 주소 주업
 @Controller
 public class BoardController {
 
-	@Autowired  
-	IF_BoardService boardservice;
+	private final IF_BoardService boardservice;
 	
 	@Autowired  
 	FileDataUtil filedatautil;
@@ -47,7 +48,7 @@ public class BoardController {
 		// 서비스 layer에 전체글 서비스를 요청하고 결과를 리턴
 		List<BoardVO> list = boardservice.boardList(pagevo);
 		// 단위테스트
-		//System.out.println(list.size() +"건 가져옴");
+		System.out.println(list.size() +"건 가져옴");
 		// 리턴받은 list변수의 값을 모델 객체로 뷰에게 전송하는 코드
 		model.addAttribute("list", list);
 		// 뷰를 지정

@@ -1,5 +1,6 @@
 package com.kimtr.web.vo;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -17,5 +18,4 @@ public class BoardVO {
 	String indate;
 	String[] filename;
 	String num;
-	
 }

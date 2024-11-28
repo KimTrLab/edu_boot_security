@@ -18,11 +18,12 @@ public class MemberController {
 	@PostMapping(value = "join")
 	public String join(@ModelAttribute
 			MemberVO membervo) throws Exception{  //VO로 파라미터 받는다
-		//System.out.println(membervo.toString());
+		System.out.println(membervo.toString());
 		//비지니스 로직을 서비스 단에게 요청..
+		System.out.println("join controller");
 		memberservice.join(membervo);
 		
-		return "redirect:/?msg=3";
+		return "redirect:/";
 	}
 	
 }
